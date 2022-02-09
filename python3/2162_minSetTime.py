@@ -2,10 +2,7 @@ class Solution:
     def minCostSetTime(self, startAt: int, moveCost: int, pushCost: int, targetSeconds: int) -> int:
         def convert(s):
             # converts time string into seconds
-            if not s:
-                return -1
-            sec, minutes = int(s[:2][::-1]), int(s[2:][::-1]) if s[2:] else 0
-            
+            sec, minutes = int(s[:2][::-1]) if s[:2] else 0, int(s[2:][::-1]) if s[2:] else 0
             return sec+minutes*60
         
         q = deque([["", startAt, 0]])
